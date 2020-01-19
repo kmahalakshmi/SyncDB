@@ -1,0 +1,55 @@
+extends layout
+
+block content
+  #result-model.modal.fade(role='dialog', data-backdrop='static', data-keyboard='false')
+    .modal-dialog.modal-lg
+      .modal-content
+        .modal-header
+          h4.modal-title Database comparison result
+        .modal-body
+          #results 
+        .modal-footer
+          .condition
+            //- | Please wait while Validating
+          button#cancel-id.btn.btn-danger(type='button', data-dismiss='modal') Ok 
+  .container-fluid
+    .col-md-12.no-side-padd
+      .row
+        .col-md-12.title-bar.text-center
+          h1= title
+        .col-md-8.col-md-offset-2.upload-form
+          .col-md-6.upload-db-one
+            .col-md-8.col-md-offset-2
+              .col-md-12.upload-title.text-center
+                i(class="fa fa-cloud-upload" aria-hidden="true")
+                span.text-center Upload DB one
+              .col-md-12.upload-box.box-shadow.text-center
+                i(class="fa fa-file" aria-hidden="true")
+                .col-md-12
+                  form(name="uploader", action="/upload", method="post", enctype="multipart/form-data")
+                    .col-md-6
+                      label#upload-button.btn.btn-info
+                        | Browse
+                        input#file(type='file',name="filename")
+                    .col-md-6
+                      button#upload-button.btn.btn-info Upload
+          .col-md-6.upload-db-two
+            .col-md-8.col-md-offset-2
+              .col-md-12.upload-title.text-center
+                i(class="fa fa-cloud-upload" aria-hidden="true")
+                span.text-center Upload DB two
+              .col-md-12.upload-box.box-shadow.text-center
+                i(class="fa fa-file" aria-hidden="true")
+                .col-md-12
+                  form(name="uploader", action="/upload", method="post", enctype="multipart/form-data")
+                    .col-md-6
+                      label#upload-button.btn.btn-info
+                        | Browse
+                        input#file(type='file',name="filename")
+                    .col-md-6
+                      button#upload-button.btn.btn-info Upload
+        .col-md-12.sync-btn
+          .col-md-2.col-md-offset-4
+            button(type="button" class="btn btn-lg btn-info" onclick="feedData()") Feed Data
+          .col-md-2
+            button(type="button" class="btn btn-lg btn-info" onclick="compareDB()") Compare DB

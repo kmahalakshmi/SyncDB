@@ -1,0 +1,149 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* background: url("../img/bg.jpg") center center no-repeat;
+  background-size: cover; */
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* Commom style */
+
+.no-side-padd
+{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.no-padd
+{
+  padding: 0px;
+}
+
+.no-marg
+{
+  margin: 0px;
+}
+
+.no-side-marg
+{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.text-center
+{
+  text-align: center;
+}
+
+.box-shadow
+{
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
+}
+
+.disp-inline
+{
+  display: inline;
+}
+
+/* Index page styles */
+
+.title-bar
+{
+  font-size: 50px;
+  font-weight: 900;
+  /* colsor: white; */
+  /* background: url("../img/database.jpg"); */
+  height: 30vh;
+}
+
+.upload-form
+{
+  margin-bottom: 30px;
+}
+
+.upload-title
+{
+  padding: 40px;
+  background-color: #4DB7AC;
+  color: white;
+  font-size: 30px;
+}
+
+.upload-box
+{
+  height: 30vh;
+  padding: 50px;
+}
+
+.upload-box i
+{
+  font-size: 50px;
+  color: #D5D0D5;
+  margin-bottom: 30px;
+}
+
+.browser-btn
+{
+  text-decoration: underline;
+  color: #4DB7AC;
+}
+
+.upload-title span
+{
+  margin-left: 10px;
+}
+
+.sync-btn button
+{
+  background-color: #4DB7AC;
+  border-color: #4DB7AC;
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.sync-btn button:hover, button:focus, button:active
+{
+  background-color: #4DB7AC !important;
+  border-color: #4DB7AC !important;
+}
+
+.text-browse {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-decoration: underline;
+  color: blue;
+}
+.wrapper {
+  position: relative;
+}
+input { 
+  opacity: 0; 
+}
+
+#upload-button, #upload-button:hover, #upload-button:active, #upload-button:focus
+{
+  background: none !important;
+  border: none !important;
+  border-style: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  color: #4DB7AC;
+  text-decoration: underline;
+}
+
+table{
+  width: 100%;
+  margin: 20px 0;
+  border-collapse: collapse;
+}
+table, th, td{
+  border: 1px solid #cdcdcd;
+}
+table th, table td{
+  padding: 5px;
+  text-align: left;
+}

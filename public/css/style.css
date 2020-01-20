@@ -66,9 +66,14 @@ a {
   margin-bottom: 30px;
 }
 
+form
+{
+  margin-top: 20px;
+}
+
 .upload-title
 {
-  padding: 40px;
+  padding: 20px;
   background-color: #4DB7AC;
   color: white;
   font-size: 30px;
@@ -76,10 +81,14 @@ a {
 
 .upload-box
 {
-  height: 30vh;
-  padding: 50px;
+  height: 35vh;
+  padding: 20px;
 }
-
+#upload-icon
+{
+  width: 70%;
+  margin-bottom: 20px;
+}
 .upload-box i
 {
   font-size: 50px;
@@ -131,13 +140,19 @@ input {
 
 #upload-button, #upload-button:hover, #upload-button:active, #upload-button:focus
 {
-  background: none !important;
-  border: none !important;
-  border-style: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-  color: #4DB7AC;
-  text-decoration: underline;
+  background-color: #4DB7AC !important;
+  border: 1px solid #4DB7AC !important;
+  /* background: none !important; */
+  /* border: none !important; */
+  /* border-style: none !important; */
+  /* outline: none !important; */
+  /* box-shadow: none !important; */
+  /* color: #4DB7AC; */
+  font-size: 15px;
+  /* text-decoration: underline; */
+}
+#file{
+  display: none;
 }
 
 table{

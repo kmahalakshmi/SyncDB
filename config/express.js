@@ -25,7 +25,7 @@ module.exports = (app, config) => {
   }));
   app.use(cookieParser());
   app.use(compress());
-  app.use(express.static(config.root + '/public'));
+  app.use('/custom', express.static(config.root + '/public'));
   app.use('/data', express.static(path.join(config.root + "/data-dump")));
   app.use(methodOverride());
 

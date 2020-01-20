@@ -143,7 +143,6 @@ module.exports = {
         });
       });
 
-
       function tableComparison(tableName, columns, coltypes, callback) {
         Promise.all([
           // To get schema

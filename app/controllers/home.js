@@ -1,21 +1,7 @@
 var fs = require('fs');
 var path = require("path");
-const { Client } = require("pg");
-
-// Create connection for both database
-var connectionStringDBOne = `postgres://postgres:postgres@localhost:5432/db1`;
-var connectionStringDBTwo = `postgres://postgres:postgres@localhost:5432/db2`;
-
-const clientOne = new Client({
-  connectionString: connectionStringDBOne
-});
-
-const clientTwo = new Client({
-  connectionString: connectionStringDBTwo
-});
-
-clientOne.connect();
-clientTwo.connect();
+var clientOne = require("../models").clientOne;
+var clientTwo = require("../models").clientTwo;
 
 module.exports = {
   // Landing page

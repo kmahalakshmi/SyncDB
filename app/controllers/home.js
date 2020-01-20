@@ -3,8 +3,8 @@ var path = require("path");
 const { Client } = require("pg");
 
 // Create connection for both database
-var connectionStringDBOne = `postgres://postgres:m@localhost:5432/db1`;
-var connectionStringDBTwo = `postgres://postgres:m@localhost:5432/db2`;
+var connectionStringDBOne = `postgres://postgres:postgres@localhost:5432/db1`;
+var connectionStringDBTwo = `postgres://postgres:postgres@localhost:5432/db2`;
 
 const clientOne = new Client({
   connectionString: connectionStringDBOne
@@ -29,7 +29,7 @@ module.exports = {
   feedData: function (req, res, next) {
     Promise.all([
       // Check for dblink
-      clientOne.query("SELECT * FROM   pg_catalog.pg_proc WHERE  prosrc ILIKE '%dblink%';", function (err, result) {
+      clientOne.query("SELECT * FROM pg_catalog.pg_proc WHERE prosrc ILIKE '%dblink%';", function (err, result) {
         if (result.rows.length > 0) {
           console.log("dblink already exist");
         }
@@ -42,7 +42,7 @@ module.exports = {
           });
         }
       }),
-      clientTwo.query("SELECT * FROM   pg_catalog.pg_proc WHERE  prosrc ILIKE '%dblink%';", function (err, result) {
+      clientTwo.query("SELECT * FROM  pg_catalog.pg_proc WHERE prosrc ILIKE '%dblink%';", function (err, result) {
         if (result.rows.length > 0) {
           console.log("dblink already exist");
         }
@@ -60,6 +60,7 @@ module.exports = {
       fs.readdir(path.join(__dirname, '../../data-dump/'), (err, data) => {
         if (err) {
           console.log(err);
+          res.send(err);
         }
         else {
           fileNames = data;

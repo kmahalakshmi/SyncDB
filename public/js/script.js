@@ -4,8 +4,10 @@ function feedData() {
     type: 'POST',
     success: function (data, status) {
       console.log("Success message", data);
+      toastr.success('Data inserted successfully', 'SUCCESS');
     },
     error: function (status, msg) {
+      toastr.error('Already exists', 'ERROR');
       console.log("Error message", msg, status);
     }
   });
@@ -16,13 +18,13 @@ function compareDB() {
     url: '/compareDB',
     type: 'POST',
     success: function (data, status) {
-      // console.log("Success message", data);
+      toastr.success('Results of comparison', 'SUCCESS');
       var finalResults = data.resultTable;
-
+      // Arrage data into the UI
       Object.keys(finalResults).map(function (eachdb) {
         $('.modal-body #results').append('<h3 class="' + eachdb + '"> Tablename : ' + eachdb + '</h3>');
         if (Object.keys(finalResults[eachdb]).length == 2) {
-          $('.modal-body #results').append('<h5> Schema Changes of both Database as follow </h5>');
+          $('.modal-body #results').append('<h4> Schema Changes of both Database as follow </h4>');
           Object.keys(finalResults[eachdb]).map(function (eachtable) {
             var tabledata = JSON.parse(finalResults[eachdb][eachtable]);
             if (tabledata.length > 0) {
@@ -35,11 +37,11 @@ function compareDB() {
           })
         }
         else if (Object.keys(finalResults[eachdb]).length == 4) {
-          $('.modal-body #results').append('<h5> Data Changes of both Database as follow </h5>');
+          $('.modal-body #results').append('<h4> Data Changes of both Database as follow </h4>');
           console.log(finalResults[eachdb]);
 
           if (finalResults[eachdb].dbOneInsertedData != "[]") {
-            $('.modal-body #results').append('<h6> Newly inserted data from Database One </h6>');
+            $('.modal-body #results').append('<h5> Newly inserted data from Database One </h5>');
             var tableres = JSON.parse(finalResults[eachdb].dbOneInsertedData);
             var columnNames = Object.keys(tableres[0]);
             var count = Math.floor(columnNames.length / 2);
@@ -59,7 +61,7 @@ function compareDB() {
           }
 
           if (finalResults[eachdb].dbTwoInsertedData != "[]") {
-            $('.modal-body #results').append('<h6> Newly inserted data from Database Two </h6>');
+            $('.modal-body #results').append('<h5> Newly inserted data from Database Two </h5>');
             var tableres = JSON.parse(finalResults[eachdb].dbTwoInsertedData);
             var columnNames = Object.keys(tableres[0]);
             var count = Math.floor(columnNames.length / 2);
@@ -78,7 +80,7 @@ function compareDB() {
           }
 
           if (finalResults[eachdb].dbOneModifiedData != "[]") {
-            $('.modal-body #results').append('<h6> Modified data from Database One </h6>');
+            $('.modal-body #results').append('<h5> Modified data from Database One </h5>');
             var tableres = JSON.parse(finalResults[eachdb].dbOneModifiedData);
             Object.keys(tableres).map(function (eachrow) {
               $('.modal-body #results').append('<tr>');
@@ -90,7 +92,7 @@ function compareDB() {
           }
 
           if (finalResults[eachdb].dbTwoModifiedData != "[]") {
-            $('.modal-body #results').append('<h6> Modified data from Database Two </h6>');
+            $('.modal-body #results').append('<h5> Modified data from Database Two </h5>');
             var tableres = JSON.parse(finalResults[eachdb].dbTwoModifiedData);
             Object.keys(tableres).map(function (eachrow) {
               $('.modal-body #results').append('<tr>');
@@ -105,9 +107,13 @@ function compareDB() {
       $('#result-model').modal('show');
     },
     error: function (status, msg) {
+      toastr.error('Error in comparison', 'ERROR');
       console.log("Error message", msg, status);
     }
   });
 }
 
+function clearData() {
+  $(".modal-body #results").empty();
+}
 

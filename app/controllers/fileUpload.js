@@ -1,4 +1,3 @@
-var config = require("../../config/config");
 var path = require("path");
 var fs = require("fs");
 
@@ -8,7 +7,6 @@ module.exports = {
     var uploaded_file = req.files.filename;
     var uploaded_filename = uploaded_file.name;
     var dir = path.join(__dirname, '../../data-dump/');
-    console.log();
     if (fs.existsSync(path.join(dir + uploaded_filename))) {
       console.log("file exist");
       fs.unlinkSync(path.join(dir + uploaded_filename));

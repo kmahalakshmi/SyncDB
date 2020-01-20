@@ -5,13 +5,11 @@ block content
     .modal-dialog.modal-lg
       .modal-content
         .modal-header
-          h4.modal-title Database comparison result
+          h4.modal-title Database Comparison Result
         .modal-body
           #results 
         .modal-footer
-          .condition
-            //- | Please wait while Validating
-          button#cancel-id.btn.btn-danger(type='button', data-dismiss='modal') Ok 
+          button#cancel-id.btn.btn-danger(type='button', data-dismiss='modal',onclick="clearData();") Ok 
   .container-fluid
     .col-md-12.no-side-padd
       .row
@@ -49,7 +47,5 @@ block content
                     .col-md-6
                       button#upload-button.btn.btn-info Upload
         .col-md-12.sync-btn
-          .col-md-2.col-md-offset-4
             button(type="button" class="btn btn-lg btn-info" onclick="feedData()") Feed Data
-          .col-md-2
             button(type="button" class="btn btn-lg btn-info" onclick="compareDB()") Compare DB
